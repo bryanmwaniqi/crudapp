@@ -1,8 +1,11 @@
 from flask import Blueprint
 from flask_restful import Api
 
-version1 = Blueprint('api_version-1', __name__)
+from .views.products import AllProducts
+
+version1 = Blueprint('api_version_1', __name__, url_prefix='/crudapp/api/v1')
 
 api = Api(version1)
 
+api.add_resource(AllProducts, '/products')
 

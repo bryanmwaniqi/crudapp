@@ -1,14 +1,14 @@
 class BaseConfig(object):
-	DEBUG = False
-	TESTING = False
+    DEBUG = False
+    TESTING = False
 
 class DevelopmentConfig(BaseConfig):
-	DEBUG = True
+    DEBUG = True
 
 class ProductionConfig(BaseConfig):
-	DEBUG = False
+    DEBUG = False
 
 class TestingConfig(BaseConfig):
-	DEBUG=True
-	TESTING = True
+    DEBUG=True
+    TESTING = True
 
