@@ -11,13 +11,16 @@ class Products:
         self.category = category
         self.quantity = quantity
         self.price = price
-        self.datecreated = datetime.datetime.now()
+        self.datecreated = str(datetime.now())
 
     def new_product(self):
-        Products.products_list.update(name=self.__dict__)
+        new_product_name = self.product_name
+        Products.products_list[self.product_name] = self.__dict__
 
     def update_product(self, *args):
         self.quantity += quantity
-        Products.products_list.update(name=self.__dict__)
+        updated_product = self.product_name
+        Products.products_list[self.product_name] = self.__dict__
+
     def get_all(self):
         return Products.products_list
