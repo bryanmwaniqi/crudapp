@@ -12,20 +12,19 @@ class User:
     def signup(self):
         payload = dict(
             email = self.email,
+            id = self.id,
             username = self.username,
             password = self.password
             )
 
-        self.all_users.update({self.email:payload})
+        self.all_users.update({self.username:payload})
 
-
-    def get_one(self, email):
-
+    @classmethod
+    def get_one(cls, username):
         for key in User.all_users:
-            if key == email:
+            if key == username:
                 return User.all_users[key]
-        message = "User not found"
-        return message
-
+                
+    @classmethod
     def get_all(self):
-        return {u.username: u for u in User.all_users.get()}
+        return {u['username']: u for u in User.all_users.values()}

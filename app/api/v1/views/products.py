@@ -1,6 +1,5 @@
 from flask_restful import Resource, reqparse
-from flask_jwt import JWT, jwt_required
-# from flask_jwt_extended import jwt_required
+from flask_jwt_extended import jwt_required
 
 from ..models.products_model import Products
 
@@ -13,12 +12,12 @@ parser.add_argument('price', required = True, help = 'Please set product price')
 
 class AllProducts(Resource):
     '''Get method for fetching all products'''
-    @jwt_required()
+    @jwt_required
     def get(self):
         products = Products.get_all(self)
         return {'Products': products}
         
-    @jwt_required()
+    @jwt_required
     def post(self):
         args = parser.parse_args()
         name = args['product_name']
