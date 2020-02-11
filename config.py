@@ -4,7 +4,8 @@ class BaseConfig(object):
     DEBUG = False
     TESTING = False
     JWT_EXPIRATION_DELTA = datetime.timedelta(minutes=10)
-    JWT_AUTH_URL_RULE = '/login'
+    JWT_BLACKLIST_ENABLED = True
+    JWT_BLACKLIST_TOKEN_CHECKS = ['access', 'refresh']
 
 
 class DevelopmentConfig(BaseConfig):

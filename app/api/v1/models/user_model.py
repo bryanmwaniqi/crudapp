@@ -8,7 +8,6 @@ class User:
         self.username = username
         self.password = password
 
-
     def signup(self):
         payload = dict(
             email = self.email,
